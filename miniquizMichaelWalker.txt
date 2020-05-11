@@ -3,15 +3,15 @@
 
 ### Question 1: 
 #### Which tag is used to display a rendered video to the browser?
-1. 
+1. &lt;movie>
 2. &lt;style>
-3. &lt;video>
+3. [x] &lt;video>
 4. &lt;section>
 
 ### Question 2: 
 #### Which part of MVC is in charge of presenting content to the user?
 1. Model
-2. View
+2. [x] View
 3. Controller
 4. Object Relational Mapper
 
@@ -19,20 +19,20 @@
 #### What does a controller need in order to send a specific response back to client?
 1. Validators
 2. Filters
-3. Actions
+3. [x] Actions
 4. Views
 
 ### Question 4: 
 #### Which CSS keyword is used to override the style of a particular element
 1. display
 2. hidden
-3. important
+3. [x] important
 4. flex
 
 ### Question 5: 
 #### What do you use to specify how a ASP.NET Core's Model's properties should be structured?
 1. Filters
 2. Actions
-3. Data Annotations
+3. [x] Data Annotations
 4. ActionResult
 
