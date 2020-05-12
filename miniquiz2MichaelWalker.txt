@@ -1,0 +1,38 @@
+## MiniQuiz: Software Development Model
+
+
+### Question 1: 
+#### What is a short, simple descriptions of a feature told from the perspective of the person who wants to use the functionality of a system.
+1. The Agile Process
+2. [x] A User STory
+3. The Scrum Process
+4. A Backlog
+
+### Question 2: 
+#### Which Development Process is the least organized?
+1. [x] The Big Bang Model
+2. The V-Model 
+3. The Iterative Model
+4. The Spiral Model
+
+### Question 3: 
+#### Why are WIP (Work In Progress) Limits important?
+1. Reduces the time need for an Agile Sprint.
+2. Makes Backlogging easier.
+3. [x] It helps improve throughput and workflow.
+4. Determines the velocity of a Sprint.
+
+### Question 4: 
+#### What is one resource that determines the User Story of an Agile Srpint
+1. By making a survey for anonymous users to fill
+2. The results from frequent testing
+3. [x] Cross-Functional teams and their customer(s)/end-user(s)
+4. Figruing out how long an implementation will take
+
+### Question 5: 
+#### In a spiral model, what does the radius of the entire spiral so far represent?
+1. The amount of testing done
+2. A prediction for how many more risks to expect
+3. [x] The expense(cost) of the project so far
+4. The complexity of the entire project
+
