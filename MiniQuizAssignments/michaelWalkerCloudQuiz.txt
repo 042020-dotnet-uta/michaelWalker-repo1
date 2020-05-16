@@ -1,0 +1,38 @@
+## MiniQuiz: Cloud Computing
+
+
+### Question 1: 
+#### An Advantage for using Software as a Service over other services is?
+1. Pay as you go
+2. Support for geographically distrubted teams
+3. Decrease coding time
+4. [x] Easily mobilize your workforce on the internet
+
+### Question 2: 
+#### Which service allows you to deploy an application that can be used anywhere via the internet?
+1. Platofrom as a Service
+2. [x] Software as a Service
+3. Infrastructure as a Service
+4. Serverless
+
+### Question 3: 
+#### What is an example of vertically scaling your cloud application up?
+1. [x] Redeploying an application running on an 8-cpu virtual macine to a 16-cpu
+2. Adding instances of your service depending on how many users are using cpu power.
+3. To make your application avalailable online.
+4. making your application private so only a company has access to it.
+
+### Question 4: 
+#### What is a scenario you'd want to use a Platform as a Service specifcally?
+1. To use your application over the internet
+2. Create an email application that can be used by any user
+3. [x] Help organize and anaylize data
+4. Back up and restore storage
+
+### Question 5: 
+#### What is scalability?
+1. The process of building, testing and deploying
+2. Dealing with unkown risks from a previous development cycle
+3. [x] a system that manages resources depending on the workload
+4. Limiting a cloud application's access to a single organization
+
