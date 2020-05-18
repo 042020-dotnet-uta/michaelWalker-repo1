@@ -88,7 +88,13 @@ namespace VendorApp.Controllers
       return RedirectToAction("Index");
     }
 
-    // TODO: add docs
+    /// <summary>
+    /// Stores an cart item to the user upon request
+    /// </summary>
+    /// <param name="quantity">The amount of the product that the user requested</param>
+    /// <param name="productName">The name of the product</param>
+    /// <param name="locationName">The name of the location that obtains said product</param>
+    /// <returns></returns>
     [Authorize]
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -127,13 +133,6 @@ namespace VendorApp.Controllers
     }
 
     // TODO: create a function to verify the cart being accessed is the user's cart
-
-
-    // [HttpGet]
-    // public async Task<IActionResult> AddCartItem(int? quantity, string? productName, string? locationName, ProductInventoryInfo viewmodel)
-    // {
-    //   return Content($"{viewmodel.TargetLocationInventory == null}");
-    // }
   }
 
 }
