@@ -89,7 +89,7 @@ namespace VendorApp.Controllers
     }
 
     /// <summary>
-    /// Stores an cart item to the user upon request
+    /// Stores a cart item to the user upon request
     /// </summary>
     /// <param name="quantity">The amount of the product that the user requested</param>
     /// <param name="productName">The name of the product</param>
