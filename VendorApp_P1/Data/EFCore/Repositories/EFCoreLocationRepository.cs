@@ -70,7 +70,6 @@ namespace VendorApp.Data.EFCore
     /// <returns>The location inventory model</returns>
     public async Task<LocationInventory> GetLocationInventoryByProductAndLocationName(string locationName, string productName)
     {
-      Console.WriteLine(context == null);
 
       return await context.LocationInventoryRecords.AsNoTracking()
                       .Include(lI => lI.Location)
