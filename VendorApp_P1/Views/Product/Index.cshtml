@@ -1,0 +1,46 @@
+@model IEnumerable<VendorApp.Models.Products.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+@* Load ProductSearch React Component *@
+
+<div id="product-search">Loading...</div>
+
+@section scripts {
+<script type="text/javascript">
+    // Creates a url template that can be used later in other javascript functions
+    window.productDetailsUrl = '@Url.Action("ShowProduct", "Product", new { id = "vaId", locationId = "vaLocationId" })';
+</script>
+}
+
+@* <h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(product => product.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(productItem => item.Name)
+            </td>
+            <td>
+                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> | 
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@

@@ -1,0 +1,34 @@
+@using Microsoft.AspNetCore.Identity
+@using VendorApp.Models.Users
+
+@model IEnumerable<VendorApp.Models.Locations.LocationInventory>
+
+@inject SignInManager<VendorAppUser> SignInManager
+
+@{
+  ViewData["Title"] = "Showing Product Line";
+}
+
+@if(Model.Count() == 0){
+  <h1>There are no products for this location</h1>
+} else {
+  <h1>Products for @Model.ElementAt(0).Location.Name</h1>
+
+<div class="product-line-container">
+  <div class="row">
+    <div class="col-sm-2">Product Name?</div>
+    <div class="col-sm-8">Quantity?</div>
+  </div>
+  @foreach(var inventory in Model){
+    <div class="row">
+      <div class="col-sm-2">@inventory.Product.Name</div>
+      <div class="col-sm-8">@inventory.Quanitity</div>
+      <div class="col-sm-2">
+        <a asp-controller="Product" asp-action="Details" asp-route-id="@inventory.Product.ID">
+          <div class="button-primary">View Details</div>
+        </a>
+      </div>
+    </div>
+  }
+</div>
+}

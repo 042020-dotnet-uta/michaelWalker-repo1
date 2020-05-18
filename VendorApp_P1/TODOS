@@ -1,0 +1,9 @@
+## TODOS
+
+- [ ] add functionality to remove cart items
+- [ ] allow user to update product page with inventory from a different location
+- [✅] Display products to user with react compoment that will update product info with ajax, filter by product name 
+- [ ] Allow user to confirm their order
+- [ ] Add Loggin
+- [ ] Add Testing
+- [ ] Add products up to 10 items and three catagories

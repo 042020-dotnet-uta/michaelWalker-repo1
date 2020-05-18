@@ -1,0 +1,61 @@
+@model VendorApp.Models.ViewModels.ProductInventoryInfo
+
+@using Microsoft.AspNetCore.Identity
+@using VendorApp.Models.Users
+
+@inject SignInManager<VendorAppUser> SignInManager
+@inject UserManager<VendorAppUser> UserManager
+
+  @{
+    ViewData["Title"] = @Model.TargetLocationInventory.Product.Name;
+  }
+
+<h1>Product Info</h1>
+
+@* TODO: create a select list of locations *@
+
+@* Show details of product at this location with quantity *@
+
+<div class="product-info">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>
+        @Model.TargetLocationInventory.Location.Name's @Model.TargetLocationInventory.Product.Name
+      </h3>
+    </div>
+  </div>
+
+  @* TODO: display an image here *@
+
+  <div class="row">
+    <div class="col-sm-6">
+      Qauntity: @Model.TargetLocationInventory.Quanitity
+    </div>
+  </div>
+
+  @* Add thing to add to cart *@
+  <div class="row">
+    <div class="col-sm-12">
+      @if(SignInManager.IsSignedIn(User)){
+        <form method="POST">
+          @* @Html.EditorFor(m => m.TargetLocationInventory.Quanitity, new { htmlAttributes = new {@min = 1, @max = Model.TargetLocationInventory.Quanitity}}) *@
+          <input asp-for="TargetLocationInventory.Quanitity" name="quantity" value="1" min="1"
+            max="@Model.TargetLocationInventory.Quanitity"/> <br/> @* @Model.TargetLocationInventory.Quanitity *@
+          @* <input asp-for="TargetLocationInventory" name="TargetLocationInventory" hidden /> *@
+          <input asp-for="TargetLocationInventory.Product.Name" name="ProductName" hidden />
+          <input asp-for="TargetLocationInventory.Location.Name" name="LocationName" hidden />
+          <button class="btn-primary" asp-controller="Cart" asp-action="AddCartItem">Add To Cart</button>
+        </form>
+      } else {
+        <button id="swal-add-cart-no-auth" class="btn btn-primary">Add To Cart</button> 
+      }
+    </div>
+  </div>
+</div>
+
+@section scripts {
+  <script type="text/javascript">
+    window.VendorAppLoginUrl = '/Identity/Account/Login';
+    window.VendorAppRegisterUrl = '/Identity/Account/Register';
+  </script>
+}

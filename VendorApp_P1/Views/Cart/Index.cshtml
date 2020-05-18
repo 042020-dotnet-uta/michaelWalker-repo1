@@ -1,0 +1,70 @@
+@model VendorApp.Models.Carts.Cart
+
+@using Microsoft.AspNetCore.Identity
+@using VendorApp.Models.Users
+
+@inject UserManager<VendorAppUser> UserManager
+
+<div class="row">
+  <h2>@UserManager.GetUserName(User)'s Cart</h2>
+</div>
+
+<div class="row">
+  
+    @* Check if cart has been created for user, cart items has been created or if no items were 
+    added to cart, all these cases signal that the user has an empty cart *@
+    @if(Model == null || Model.CartItems == null || Model.CartItems.Count() == 0){
+      <div class="card w-100">
+        <div class="card-header">
+          No Items
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">This Cart is Empty</h5>
+          <p class="card-text">Let's fix that!</p>
+          <a asp-controller="Product" asp-action="Index" class="btn btn-primary">View Products</a>
+        </div>
+      </div>
+    @* } else if(Model.CartItems.Count() == 0) {
+      <div class="card">
+        <div class="card-header">
+          No Items
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">This Cart is Empty</h5>
+          <p class="card-text">Let's fix that!</p>
+          <a asp-controller="Product" asp-action="Index" class="btn btn-primary">View Products</a>
+        </div>
+      </div> *@
+    } else{
+      <ul class="list-group w-100">
+      @foreach (var cartItem in Model.CartItems)
+      {
+          <li class="list-group-item w-100">
+            <div>
+              Product: @cartItem.ProductName
+            </div> 
+            <div>
+              Location: @cartItem.LocationName
+            </div> 
+            <div>
+              Amount: @cartItem.AmountPurchased
+            </div>
+            <div>
+              <form method="post">
+                <button asp-action="DeleteCartItem" asp-route-id="@cartItem.ID" class="btn btn-danger">Remove</button>
+              </form>
+            </div>
+          </li>
+        
+      }
+      </ul>
+      <form method="post">
+        <button asp-action="RegisterPurchase" asp-route-id="@Model.ID" class="btn btn-primary">Confirm Order</button>
+      </form>
+    }
+  
+</div>
+
+<div class="row">
+
+</div>

@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Identity
+@using VendorApp.Models.Users
+
+@inject SignInManager<VendorAppUser> SignInManager
+
+@model VendorApp.Models.Products.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>DailyTask</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if(SignInManager.IsSignedIn(User)){
+        <a href="#">Add To Cart</a> @Html.Raw("|")
+    } 
+    <a asp-action="Index">Back to List</a>
+</div>

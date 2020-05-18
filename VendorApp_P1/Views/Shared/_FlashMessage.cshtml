@@ -1,0 +1,12 @@
+@{
+    string text = TempData["FlashMessage"] as string;
+    string errText = TempData["ErrorMessage"] as string;
+}
+
+@if(!string.IsNullOrWhiteSpace(text)){
+    <div id="swal-toast-flash-message" hidden>@text</div>
+}
+
+@if(!string.IsNullOrWhiteSpace(errText)){
+    <div id="swal-toast-err-flash-message" hidden>@errText</div>
+}
