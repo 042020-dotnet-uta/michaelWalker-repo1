@@ -91,6 +91,7 @@ namespace VendorApp.Controllers
     // TODO: add docs
     [Authorize]
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> AddCartItem(int? quantity, string productName, string locationName)
     {
       // Get the user who's azdding the item to the cart
