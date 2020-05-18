@@ -52,15 +52,18 @@ namespace VendorApp.Models
         if (!ctx.Catagories.Any())
         {
           ctx.AddRange(
-            new Catagory {
+            new Catagory
+            {
               CatagoryName = "Electronics",
               HexColorTheme = "#42f5c5"
             },
-            new Catagory {
+            new Catagory
+            {
               CatagoryName = "Clothing",
               HexColorTheme = "#427bf5"
             },
-            new Catagory {
+            new Catagory
+            {
               CatagoryName = "Entertainment",
               HexColorTheme = "#f59b42"
             }

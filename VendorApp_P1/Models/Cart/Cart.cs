@@ -34,13 +34,14 @@ namespace VendorApp.Models.Carts
       string cartItems = "\nCartItems:\n";
       int tempCount = 0;
 
-      foreach(var cartItem in CartItems)
+      foreach (var cartItem in CartItems)
       {
         tempCount++;
         cartItems += $"Product: {cartItem.ProductName} Location: {cartItem.LocationName} Quantity: {cartItem.AmountPurchased}";
       }
 
-      if(tempCount == 0){
+      if (tempCount == 0)
+      {
         cartItems = "There are no cart items";
       }
 

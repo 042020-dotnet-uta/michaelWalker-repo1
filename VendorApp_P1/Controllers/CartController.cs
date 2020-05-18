@@ -54,9 +54,11 @@ namespace VendorApp.Controllers
     }
     [Authorize]
     [HttpPost]
-    public async Task<IActionResult> DeleteCartItem(int? id){
+    public async Task<IActionResult> DeleteCartItem(int? id)
+    {
       // check if id is valid
-      if(id == null) {
+      if (id == null)
+      {
         TempData["ErrorMessage"] = "Please enter valid input";
         return Redirect(Request.Headers["Referer"]);
       }
@@ -74,7 +76,8 @@ namespace VendorApp.Controllers
     public async Task<IActionResult> RegisterPurchase(int? id)
     {
       // check if the id is valid
-      if(id == null) {
+      if (id == null)
+      {
         TempData["ErrorMessage"] = "Please enter valid input";
         return Redirect(Request.Headers["Referer"]);
       }
@@ -119,7 +122,7 @@ namespace VendorApp.Controllers
 
       // Take client back to list of products
 
-      return RedirectToAction("Index", "Product"); 
+      return RedirectToAction("Index", "Product");
     }
 
     // TODO: create a function to verify the cart being accessed is the user's cart

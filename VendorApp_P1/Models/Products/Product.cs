@@ -30,7 +30,7 @@ namespace VendorApp.Models.Products
     [Required]
     [MaxLength(50)]
     public string Catagory { get; set; } // TODO: change toe CatagoryName
-    
+
     /// <summary>
     /// A Font-Awesome classname that is used to display an icon.
     /// This is basically a subsitute for image urls from an asset cdn.

@@ -76,7 +76,7 @@ namespace VendorApp.Data.EFCore
       // Delete the cart - order has been sucessfully documented
       await cartRepo.Delete(userCart.ID);
 
-      
+
 
       // All required data has been added, we can now add to DB and return the newly
       // created order

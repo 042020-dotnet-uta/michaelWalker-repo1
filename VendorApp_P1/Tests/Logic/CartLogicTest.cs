@@ -47,13 +47,15 @@ namespace VendorApp.Tests
 
       // Make a mock user who will own the cart
       string userId = "user-id";
-      VendorAppUser tempUser = new VendorAppUser{
+      VendorAppUser tempUser = new VendorAppUser
+      {
         Id = userId
       };
       // Mock<EFCoreUserRepository> mockUser = new Mock<EFCoreUserRepository>();
       // mockUser.Setup(u => u.Get(userId)).ReturnsAsync(tempUser);
       // Make a cart
-      Cart newCart = new Cart{
+      Cart newCart = new Cart
+      {
         User = tempUser,
         CartItems = new List<CartItem>()
       };
@@ -64,37 +66,40 @@ namespace VendorApp.Tests
 
       // Make some cart items
 
-      CartItem c1 = new CartItem{
+      CartItem c1 = new CartItem
+      {
         Cart = newCart,
         ProductName = "Product1",
         AmountPurchased = 2
       };
-      
-      CartItem c2 = new CartItem{
+
+      CartItem c2 = new CartItem
+      {
         Cart = newCart,
         ProductName = "Product2",
         AmountPurchased = 2
       };
-      CartItem c3 = new CartItem{
+      CartItem c3 = new CartItem
+      {
         Cart = newCart,
         ProductName = "Product3",
         AmountPurchased = 4
       };
 
       // Add items to cart
-      await cartRepo.AddItemToCart(userId, "Product0","Location0", 2);
-      await cartRepo.AddItemToCart(userId, "Product1","Location1", 10);
-      await cartRepo.AddItemToCart(userId, "Product2","Location2", 50);
-      
+      await cartRepo.AddItemToCart(userId, "Product0", "Location0", 2);
+      await cartRepo.AddItemToCart(userId, "Product1", "Location1", 10);
+      await cartRepo.AddItemToCart(userId, "Product2", "Location2", 50);
+
       // * Assert
       // Retrive Cart back from context
       Cart actualCart = await cartRepo.FindCartByUserId(tempUser.Id);
-      
+
       // Assert all values
 
       Assert.Equal(userId, actualCart.User.Id);
       // Check all cart items
-      List<CartItem> actualCartItems = (List<CartItem>) actualCart.CartItems;
+      List<CartItem> actualCartItems = (List<CartItem>)actualCart.CartItems;
       Assert.Equal(3, actualCartItems.Count);
 
       Assert.Equal("Product0", actualCartItems[0].ProductName);

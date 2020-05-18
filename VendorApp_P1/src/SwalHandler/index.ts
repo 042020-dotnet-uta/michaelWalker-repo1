@@ -69,7 +69,7 @@ export default class SwalHandler {
         title: flashSuccessMessage.innerText,
         toast: true,
         icon: "success",
-        position: 'top'
+        position: "top",
       })
     }
 
@@ -78,9 +78,8 @@ export default class SwalHandler {
         title: flashErrMessage.innerText,
         toast: true,
         icon: "error",
-        position: 'top'
+        position: "top",
       })
-
     }
   }
 }

@@ -9,546 +9,546 @@ using VendorApp.Data;
 
 namespace VendorApp.Migrations
 {
-    [DbContext(typeof(P1ProtoDBContext))]
-    [Migration("20200517214126_InitialCreate")]
-    partial class InitialCreate
+  [DbContext(typeof(P1ProtoDBContext))]
+  [Migration("20200517214126_InitialCreate")]
+  partial class InitialCreate
+  {
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder
+          .HasAnnotation("ProductVersion", "3.1.3")
+          .HasAnnotation("Relational:MaxIdentifierLength", 128)
+          .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+          {
+            b.Property<string>("Id")
+                      .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ConcurrencyStamp")
+                      .IsConcurrencyToken()
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+            b.Property<string>("Name")
+                      .HasColumnType("nvarchar(256)")
+                      .HasMaxLength(256);
 
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+            b.Property<string>("NormalizedName")
+                      .HasColumnType("nvarchar(256)")
+                      .HasMaxLength(256);
 
-                    b.HasKey("Id");
+            b.HasKey("Id");
 
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+            b.HasIndex("NormalizedName")
+                      .IsUnique()
+                      .HasName("RoleNameIndex")
+                      .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("AspNetRoles");
-                });
+            b.ToTable("AspNetRoles");
+          });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+          {
+            b.Property<int>("Id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ClaimType")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ClaimValue")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+            b.Property<string>("RoleId")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+            b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
+            b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims");
-                });
+            b.ToTable("AspNetRoleClaims");
+          });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+          {
+            b.Property<int>("Id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ClaimType")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ClaimValue")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+            b.Property<string>("UserId")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+            b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+            b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
-                });
+            b.ToTable("AspNetUserClaims");
+          });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+          {
+            b.Property<string>("LoginProvider")
+                      .HasColumnType("nvarchar(128)")
+                      .HasMaxLength(128);
 
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+            b.Property<string>("ProviderKey")
+                      .HasColumnType("nvarchar(128)")
+                      .HasMaxLength(128);
 
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ProviderDisplayName")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+            b.Property<string>("UserId")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("LoginProvider", "ProviderKey");
+            b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.HasIndex("UserId");
+            b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins");
-                });
+            b.ToTable("AspNetUserLogins");
+          });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+          {
+            b.Property<string>("UserId")
+                      .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+            b.Property<string>("RoleId")
+                      .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("UserId", "RoleId");
+            b.HasKey("UserId", "RoleId");
 
-                    b.HasIndex("RoleId");
+            b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
-                });
+            b.ToTable("AspNetUserRoles");
+          });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+          {
+            b.Property<string>("UserId")
+                      .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+            b.Property<string>("LoginProvider")
+                      .HasColumnType("nvarchar(128)")
+                      .HasMaxLength(128);
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+            b.Property<string>("Name")
+                      .HasColumnType("nvarchar(128)")
+                      .HasMaxLength(128);
 
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("Value")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId", "LoginProvider", "Name");
+            b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens");
-                });
+            b.ToTable("AspNetUserTokens");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Carts.Cart", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Carts.Cart", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+            b.Property<string>("UserId")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+            b.HasIndex("UserId")
+                      .IsUnique();
 
-                    b.ToTable("Carts");
-                });
+            b.ToTable("Carts");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Carts.CartItem", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Carts.CartItem", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AmountPurchased")
-                        .HasColumnType("int");
+            b.Property<int>("AmountPurchased")
+                      .HasColumnType("int");
 
-                    b.Property<int>("CartID")
-                        .HasColumnType("int");
+            b.Property<int>("CartID")
+                      .HasColumnType("int");
 
-                    b.Property<string>("LocationName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+            b.Property<string>("LocationName")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(50)")
+                      .HasMaxLength(50);
 
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+            b.Property<string>("ProductName")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(50)")
+                      .HasMaxLength(50);
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.HasIndex("CartID");
+            b.HasIndex("CartID");
 
-                    b.ToTable("CartItems");
-                });
+            b.ToTable("CartItems");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Locations.Location", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Locations.Location", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+            b.Property<string>("Name")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(50)")
+                      .HasMaxLength(50);
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.ToTable("Locations");
-                });
+            b.ToTable("Locations");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Locations.LocationInventory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Locations.LocationInventory", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("LocationID")
-                        .HasColumnType("int");
+            b.Property<int>("LocationID")
+                      .HasColumnType("int");
 
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
+            b.Property<int>("ProductID")
+                      .HasColumnType("int");
 
-                    b.Property<int>("Quanitity")
-                        .HasColumnType("int");
+            b.Property<int>("Quanitity")
+                      .HasColumnType("int");
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.HasIndex("LocationID");
+            b.HasIndex("LocationID");
 
-                    b.HasIndex("ProductID");
+            b.HasIndex("ProductID");
 
-                    b.ToTable("LocationInventoryRecords");
-                });
+            b.ToTable("LocationInventoryRecords");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Orders.Order", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Orders.Order", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+            b.Property<DateTime>("CreatedDate")
+                      .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+            b.Property<string>("UserId")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.HasIndex("UserId");
+            b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
-                });
+            b.ToTable("Orders");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Orders.OrderItem", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Orders.OrderItem", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AmountPurchased")
-                        .HasColumnType("int");
+            b.Property<int>("AmountPurchased")
+                      .HasColumnType("int");
 
-                    b.Property<string>("LocationName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("LocationName")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderID")
-                        .HasColumnType("int");
+            b.Property<int?>("OrderID")
+                      .HasColumnType("int");
 
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ProductName")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.HasIndex("OrderID");
+            b.HasIndex("OrderID");
 
-                    b.ToTable("OrderItem");
-                });
+            b.ToTable("OrderItem");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Products.Catagory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Products.Catagory", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CatagoryName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("CatagoryName")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("HexColorTheme")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(7)")
-                        .HasMaxLength(7);
+            b.Property<string>("HexColorTheme")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(7)")
+                      .HasMaxLength(7);
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.ToTable("Catagories");
-                });
+            b.ToTable("Catagories");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Products.Product", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Products.Product", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Catagory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+            b.Property<string>("Catagory")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(50)")
+                      .HasMaxLength(50);
 
-                    b.Property<string>("FAClass")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+            b.Property<string>("FAClass")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(50)")
+                      .HasMaxLength(50);
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+            b.Property<string>("Name")
+                      .IsRequired()
+                      .HasColumnType("nvarchar(50)")
+                      .HasMaxLength(50);
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.ToTable("Products");
-                });
+            b.ToTable("Products");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Products.ProductCatagory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+      modelBuilder.Entity("VendorApp.Models.Products.ProductCatagory", b =>
+          {
+            b.Property<int>("ID")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int")
+                      .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CatagoryID")
-                        .HasColumnType("int");
+            b.Property<int>("CatagoryID")
+                      .HasColumnType("int");
 
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
+            b.Property<int>("ProductID")
+                      .HasColumnType("int");
 
-                    b.HasKey("ID");
+            b.HasKey("ID");
 
-                    b.HasIndex("CatagoryID");
+            b.HasIndex("CatagoryID");
 
-                    b.HasIndex("ProductID");
+            b.HasIndex("ProductID");
 
-                    b.ToTable("ProductCatagories");
-                });
+            b.ToTable("ProductCatagories");
+          });
 
-            modelBuilder.Entity("VendorApp.Models.Users.VendorAppUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+      modelBuilder.Entity("VendorApp.Models.Users.VendorAppUser", b =>
+          {
+            b.Property<string>("Id")
+                      .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+            b.Property<int>("AccessFailedCount")
+                      .HasColumnType("int");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("ConcurrencyStamp")
+                      .IsConcurrencyToken()
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+            b.Property<string>("Email")
+                      .HasColumnType("nvarchar(256)")
+                      .HasMaxLength(256);
 
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+            b.Property<bool>("EmailConfirmed")
+                      .HasColumnType("bit");
 
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+            b.Property<bool>("LockoutEnabled")
+                      .HasColumnType("bit");
 
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+            b.Property<DateTimeOffset?>("LockoutEnd")
+                      .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+            b.Property<string>("NormalizedEmail")
+                      .HasColumnType("nvarchar(256)")
+                      .HasMaxLength(256);
 
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+            b.Property<string>("NormalizedUserName")
+                      .HasColumnType("nvarchar(256)")
+                      .HasMaxLength(256);
 
-                    b.Property<int>("NumCartItems")
-                        .HasColumnType("int");
+            b.Property<int>("NumCartItems")
+                      .HasColumnType("int");
 
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("PasswordHash")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+            b.Property<string>("PhoneNumber")
+                      .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("VendorApp.Models.Carts.Cart", b =>
-                {
-                    b.HasOne("VendorApp.Models.Users.VendorAppUser", "User")
-                        .WithOne("Cart")
-                        .HasForeignKey("VendorApp.Models.Carts.Cart", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("VendorApp.Models.Carts.CartItem", b =>
-                {
-                    b.HasOne("VendorApp.Models.Carts.Cart", "Cart")
-                        .WithMany("CartItems")
-                        .HasForeignKey("CartID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("VendorApp.Models.Locations.LocationInventory", b =>
-                {
-                    b.HasOne("VendorApp.Models.Locations.Location", "Location")
-                        .WithMany("LocationInventoryRecords")
-                        .HasForeignKey("LocationID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VendorApp.Models.Products.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("VendorApp.Models.Orders.Order", b =>
-                {
-                    b.HasOne("VendorApp.Models.Users.VendorAppUser", "User")
-                        .WithMany("OrderHistory")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("VendorApp.Models.Orders.OrderItem", b =>
-                {
-                    b.HasOne("VendorApp.Models.Orders.Order", null)
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderID");
-                });
-
-            modelBuilder.Entity("VendorApp.Models.Products.ProductCatagory", b =>
-                {
-                    b.HasOne("VendorApp.Models.Products.Catagory", "Catagory")
-                        .WithMany()
-                        .HasForeignKey("CatagoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VendorApp.Models.Products.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+            b.Property<bool>("PhoneNumberConfirmed")
+                      .HasColumnType("bit");
+
+            b.Property<string>("SecurityStamp")
+                      .HasColumnType("nvarchar(max)");
+
+            b.Property<bool>("TwoFactorEnabled")
+                      .HasColumnType("bit");
+
+            b.Property<string>("UserName")
+                      .HasColumnType("nvarchar(256)")
+                      .HasMaxLength(256);
+
+            b.HasKey("Id");
+
+            b.HasIndex("NormalizedEmail")
+                      .HasName("EmailIndex");
+
+            b.HasIndex("NormalizedUserName")
+                      .IsUnique()
+                      .HasName("UserNameIndex")
+                      .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+            b.ToTable("AspNetUsers");
+          });
+
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+          {
+            b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                      .WithMany()
+                      .HasForeignKey("RoleId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+          {
+            b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
+                      .WithMany()
+                      .HasForeignKey("UserId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+          {
+            b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
+                      .WithMany()
+                      .HasForeignKey("UserId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+          {
+            b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                      .WithMany()
+                      .HasForeignKey("RoleId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+
+            b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
+                      .WithMany()
+                      .HasForeignKey("UserId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+          {
+            b.HasOne("VendorApp.Models.Users.VendorAppUser", null)
+                      .WithMany()
+                      .HasForeignKey("UserId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("VendorApp.Models.Carts.Cart", b =>
+          {
+            b.HasOne("VendorApp.Models.Users.VendorAppUser", "User")
+                      .WithOne("Cart")
+                      .HasForeignKey("VendorApp.Models.Carts.Cart", "UserId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("VendorApp.Models.Carts.CartItem", b =>
+          {
+            b.HasOne("VendorApp.Models.Carts.Cart", "Cart")
+                      .WithMany("CartItems")
+                      .HasForeignKey("CartID")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("VendorApp.Models.Locations.LocationInventory", b =>
+          {
+            b.HasOne("VendorApp.Models.Locations.Location", "Location")
+                      .WithMany("LocationInventoryRecords")
+                      .HasForeignKey("LocationID")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+
+            b.HasOne("VendorApp.Models.Products.Product", "Product")
+                      .WithMany()
+                      .HasForeignKey("ProductID")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("VendorApp.Models.Orders.Order", b =>
+          {
+            b.HasOne("VendorApp.Models.Users.VendorAppUser", "User")
+                      .WithMany("OrderHistory")
+                      .HasForeignKey("UserId")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
+
+      modelBuilder.Entity("VendorApp.Models.Orders.OrderItem", b =>
+          {
+            b.HasOne("VendorApp.Models.Orders.Order", null)
+                      .WithMany("OrderItems")
+                      .HasForeignKey("OrderID");
+          });
+
+      modelBuilder.Entity("VendorApp.Models.Products.ProductCatagory", b =>
+          {
+            b.HasOne("VendorApp.Models.Products.Catagory", "Catagory")
+                      .WithMany()
+                      .HasForeignKey("CatagoryID")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+
+            b.HasOne("VendorApp.Models.Products.Product", "Product")
+                      .WithMany()
+                      .HasForeignKey("ProductID")
+                      .OnDelete(DeleteBehavior.Cascade)
+                      .IsRequired();
+          });
 #pragma warning restore 612, 618
-        }
     }
+  }
 }

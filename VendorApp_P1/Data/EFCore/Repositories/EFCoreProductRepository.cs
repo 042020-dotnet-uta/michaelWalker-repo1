@@ -76,7 +76,8 @@ namespace VendorApp.Data.EFCore
     /// </summary>
     /// <param name="locationId">Location's unique Id</param>
     /// <returns>An InventoryInfo ApiModel</returns>
-    public async Task<InventoryInfo> GetInventroyInfo(int locationId){
+    public async Task<InventoryInfo> GetInventroyInfo(int locationId)
+    {
       return await new EFCoreLocationRepository(context).GetInventroyInfo(locationId);
     }
   }

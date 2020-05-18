@@ -87,14 +87,15 @@ namespace VendorApp.Controllers
     /// </returns>
     public async Task<IActionResult> ShowProduct(int? id, int? locationId)
     {
-      if(id == null || locationId == null)
+      if (id == null || locationId == null)
       {
         return NotFound();
       }
 
       ProductInventoryInfo pII = await productRepo.GetProductInventoryInfo(id ?? -1, locationId ?? -1);
 
-      if(pII == null){
+      if (pII == null)
+      {
         return NotFound();
       }
 
@@ -110,7 +111,7 @@ namespace VendorApp.Controllers
       //   Name = "Cool product"
       // };
 
-      if(locationId == null)
+      if (locationId == null)
       {
         return BadRequest("Uhm");
       }

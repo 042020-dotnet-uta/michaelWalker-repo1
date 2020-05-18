@@ -78,7 +78,7 @@ namespace VendorApp.Data.EFCore
 
 
 
-      return null;      
+      return null;
     }
 
   }

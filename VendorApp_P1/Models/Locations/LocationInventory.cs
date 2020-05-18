@@ -31,7 +31,8 @@ namespace VendorApp.Models.Locations
     [Required]
     public int Quanitity { get; set; }
 
-    public override string ToString(){
+    public override string ToString()
+    {
       return $"Location: {Location.Name} Product: {Product.Name} Quantity: {Quanitity}";
     }
   }

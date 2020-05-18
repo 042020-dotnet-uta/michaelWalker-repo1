@@ -100,17 +100,18 @@ namespace VendorApp.Data.EFCore
     }
 
     // TODO: add docs
-    public async Task<CartItem> RemoveItemFromCart(int cartId){
+    public async Task<CartItem> RemoveItemFromCart(int cartId)
+    {
       // Find the cart item with it's cart and the cart's user
       CartItem cartItemToRemove = await context.CartItems
         .Include(cI => cI.Cart)
         .ThenInclude(c => c.User)
         .FirstOrDefaultAsync(cI => cI.ID == cartId);
       // Retreive location to restock it's inventory upon deletion
-      LocationInventory locationInventoryToRestock = 
+      LocationInventory locationInventoryToRestock =
         await context.LocationInventoryRecords
-        .FirstOrDefaultAsync(lIR => 
-          lIR.Product.Name == cartItemToRemove.ProductName 
+        .FirstOrDefaultAsync(lIR =>
+          lIR.Product.Name == cartItemToRemove.ProductName
           && lIR.Location.Name == cartItemToRemove.LocationName);
       // Restock the inventory and update user's number of cart items
       locationInventoryToRestock.Quanitity += cartItemToRemove.AmountPurchased;
@@ -128,7 +129,7 @@ namespace VendorApp.Data.EFCore
     // TODO: add docs
     // public async Task<Cart> RegisterPurchase(string userId)
     // {
-      
+
     //   Cart userCart = await FindCartByUserId(userId);
     //   EFCoreOrderRepository orderRepo = new EFCoreOrderRepository(context);
 
@@ -138,22 +139,26 @@ namespace VendorApp.Data.EFCore
     // }
 
     // TODO: add docs
-    public async Task<Cart> RegisterPurchase(int cartId){
+    public async Task<Cart> RegisterPurchase(int cartId)
+    {
       // Retreive cart by id
-      Cart cart = 
+      Cart cart =
         await context.Carts.Include(c => c.User).Include(c => c.CartItems)
         .FirstOrDefaultAsync(c => c.ID == cartId);
       VendorAppUser cartUser = cart.User;
 
       // Create a blank order record for the user with an empty set of order items
-      Order newOrder = new Order{
+      Order newOrder = new Order
+      {
         User = cartUser,
         OrderItems = new List<OrderItem>()
       };
 
       // store the cart items list to the order items list
-      foreach(var cartItem in cart.CartItems){
-        newOrder.OrderItems.Add(new OrderItem{
+      foreach (var cartItem in cart.CartItems)
+      {
+        newOrder.OrderItems.Add(new OrderItem
+        {
           ProductName = cartItem.ProductName,
           LocationName = cartItem.LocationName,
           AmountPurchased = cartItem.AmountPurchased
