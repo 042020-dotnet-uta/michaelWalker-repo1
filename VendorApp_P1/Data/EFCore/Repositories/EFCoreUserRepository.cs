@@ -47,26 +47,5 @@ namespace VendorApp.Data.EFCore
       return user.Cart;
     }
 
-    // Now we can
-
-    // TODO: Make a new role
-
-    // TODO: Assign role to user
-
-    // TODO: Have user make a purchase
-    // public async Task<Order> RegisterOrderForUser(VendorAppUser user, string locationName, string productName, int quantityPurchased)
-    // {
-    //   EFCoreOrderRepository orderRepo = new EFCoreOrderRepository(context);
-    //   Order newOrder = await orderRepo.Add(new Order
-    //   {
-    //     User = user,
-    //     ProductName = productName,
-    //     LocationName = locationName,
-    //     AmountPurchased = quantityPurchased
-    //   });
-
-    //   return newOrder;
-    // }
-
   }
 }
