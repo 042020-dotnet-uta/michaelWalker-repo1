@@ -1,0 +1,51 @@
+@model VendorApp.Models.ViewModels.UserOrders
+
+<h2>
+  @Model.UserName's orders
+</h2>
+<hr />
+
+
+
+@if(Model == null || Model.Orders == null || Model.Orders.Count() == 0){
+  <div class="card w-100">
+    <div class="card-header">
+      No Recent orders
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">You haven't made any orders yet</h5>
+      <p class="card-text">Let's fix that!</p>
+      <a asp-controller="Product" asp-action="Index" class="btn btn-primary">View Products</a>
+    </div>
+  </div>
+} else {
+  <div>
+    @foreach (var order in Model.Orders)
+    {
+        <div class="col-xs-12 mt-3">
+          <h4>
+            @order.CreatedDate
+          </h4>
+          <hr />
+          <div>
+            <ul class="list-group">
+            @foreach (var orderItem in order.OrderItems)
+            {
+                <li class="list-group-item">
+                  <div>
+                    Product: @orderItem.ProductName
+                  </div>
+                  <div>
+                    Location: @orderItem.LocationName
+                  </div>
+                  <div>
+                    Amount Purchased: @orderItem.AmountPurchased
+                  </div>
+                </li>
+            }
+            </ul>
+          </div>
+        </div>
+    }
+  </div>
+}

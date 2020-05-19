@@ -19,6 +19,7 @@ using VendorApp.Models.Users;
 using VendorApp.Models.Products;
 using VendorApp.Models.Locations;
 using VendorApp.Models.Carts;
+using VendorApp.Models.Orders;
 
 
 namespace VendorApp
@@ -51,6 +52,7 @@ namespace VendorApp
       services.AddScoped<IRepository<Product>, EFCoreProductRepository>();
       services.AddScoped<IRepository<Location>, EFCoreLocationRepository>();
       services.AddScoped<IRepository<Cart>, EFCoreCartRepository>();
+      services.AddScoped<IRepository<Order>, EFCoreOrderRepository>();
 
       // * Identity
       services.AddDefaultIdentity<VendorAppUser>(opts =>
