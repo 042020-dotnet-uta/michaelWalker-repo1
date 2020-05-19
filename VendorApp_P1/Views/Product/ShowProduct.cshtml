@@ -26,25 +26,26 @@
   </div>
 
   @* TODO: display an image here *@
+  <i class="@Model.TargetLocationInventory.Product.FAClass" style="font-size: 7em;"></i>
 
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       Qauntity: @Model.TargetLocationInventory.Quanitity
     </div>
   </div>
 
   @* Add thing to add to cart *@
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-2">
       @if(SignInManager.IsSignedIn(User)){
         <form method="POST">
           @* @Html.EditorFor(m => m.TargetLocationInventory.Quanitity, new { htmlAttributes = new {@min = 1, @max = Model.TargetLocationInventory.Quanitity}}) *@
-          <input asp-for="TargetLocationInventory.Quanitity" name="quantity" value="1" min="1"
+          <input class="form-control" asp-for="TargetLocationInventory.Quanitity" name="quantity" value="1" min="1"
             max="@Model.TargetLocationInventory.Quanitity"/> <br/> @* @Model.TargetLocationInventory.Quanitity *@
           @* <input asp-for="TargetLocationInventory" name="TargetLocationInventory" hidden /> *@
           <input asp-for="TargetLocationInventory.Product.Name" name="ProductName" hidden />
           <input asp-for="TargetLocationInventory.Location.Name" name="LocationName" hidden />
-          <button class="btn-primary" asp-controller="Cart" asp-action="AddCartItem">Add To Cart</button>
+          <button class="btn btn-primary" asp-controller="Cart" asp-action="AddCartItem">Add To Cart</button>
         </form>
       } else {
         <button id="swal-add-cart-no-auth" class="btn btn-primary">Add To Cart</button> 
