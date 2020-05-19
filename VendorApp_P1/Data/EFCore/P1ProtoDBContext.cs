@@ -41,6 +41,11 @@ namespace VendorApp.Data
     /// <value></value>
     public DbSet<Order> Orders { get; set; }
     /// <summary>
+    /// DBSet of Orders Items
+    /// </summary>
+    /// <value></value>
+    public DbSet<OrderItem> OrderItems { get; set; }
+    /// <summary>
     /// DBSet of ProductCatagories 
     /// </summary>
     /// <value></value>
