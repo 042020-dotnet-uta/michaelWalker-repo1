@@ -149,7 +149,7 @@ namespace VendorApp.Models
           List<Product> products = ctx.Products.ToList();
 
           // Setup for locations
-          string[] stores = { "Store1", "Store2", "Store3" };
+          string[] stores = { "Mississippi", "Missouri", "Michigan" };
           List<Location> newLocations = new List<Location>();
 
           foreach (string store in stores)
