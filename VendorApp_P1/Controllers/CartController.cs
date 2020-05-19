@@ -1,9 +1,4 @@
 using System.Security.Claims;
-using System.Net;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,10 +7,10 @@ using Microsoft.AspNetCore.Identity;
 
 using VendorApp.Data;
 using VendorApp.Data.EFCore;
+
 using VendorApp.Models.Carts;
 using VendorApp.Models.Users;
 using VendorApp.Models.Locations;
-using VendorApp.Models.ViewModels;
 
 
 namespace VendorApp.Controllers
@@ -52,7 +47,8 @@ namespace VendorApp.Controllers
       // return Content($"Here's a cart for ya -- {userCart.ToString()}");
       return View(userCart);
     }
-    [Authorize]
+
+    // TODO: add docs
     [HttpPost]
     public async Task<IActionResult> DeleteCartItem(int? id)
     {
@@ -83,7 +79,7 @@ namespace VendorApp.Controllers
       }
 
       Cart registeredCart = await cartRepo.RegisterPurchase(id ?? -1);
-      TempData["FlashMessage"] = "Order succesfully made";
+      TempData["FlashModalMessage"] = "Order succesfully made";
 
       return RedirectToAction("Index");
     }
@@ -104,9 +100,6 @@ namespace VendorApp.Controllers
       var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
       // VendorAppUser vendorAppUser = await userManager.GetUserAsync(User);
 
-      // ? Validate data
-      cartLogger.LogInformation($" {quantity == null} {productName == null} {locationName == null}");
-
       LocationInventory targetLocationInventory = await cartRepo.GetLocationInventoryByProductAndLocationName(locationName, productName);
 
       // Redirect user back to product page if any of the paramerters aren't valid
@@ -122,10 +115,12 @@ namespace VendorApp.Controllers
         return Redirect(Request.Headers["Referer"]);
       }
 
-      await cartRepo.AddItemToCart(userId, productName, locationName, quantity ?? -1);
       // Add item to cart
+      await cartRepo.AddItemToCart(userId, productName, locationName, quantity ?? -1);
 
+      // Document changes
       TempData["FlashMessage"] = "Added to cart";
+      cartLogger.LogInformation($"{productName} was added to users cart");
 
       // Take client back to list of products
 

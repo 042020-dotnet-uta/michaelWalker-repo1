@@ -52,13 +52,16 @@ export default class SwalHandler {
   }
 
   /**
-   * This will search for a FlashMessage element.  If found, a swal toast alert will
-   * display, reading the
+   * This will search for a FlashMessage elements that will trigger a Swal modal/toast
+   * to display when these elements are present.
    */
   public static bindToFlashMessages() {
     // Look for the swal flashmessage element
     const flashSuccessMessage: HTMLElement | null = document.querySelector(
       "#swal-toast-flash-message"
+    )
+    const flashSuccessMessageModal: HTMLElement | null = document.querySelector(
+      "#swal-flash-message"
     )
     const flashErrMessage: HTMLElement | null = document.querySelector(
       "#swal-toast-err-flash-message"
@@ -70,6 +73,14 @@ export default class SwalHandler {
         toast: true,
         icon: "success",
         position: "top",
+      })
+    }
+
+    if (flashSuccessMessageModal) {
+      Swal.fire({
+        title: "Congratulations!",
+        text: flashSuccessMessageModal.innerText,
+        icon: "success",
       })
     }
 
