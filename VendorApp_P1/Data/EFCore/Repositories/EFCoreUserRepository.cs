@@ -68,18 +68,5 @@ namespace VendorApp.Data.EFCore
     //   return newOrder;
     // }
 
-
-    public async Task<Cart> AddItemToCart(int userId, string productName, int quantity)
-    {
-      // Get instance of user from id
-
-      // Check if user already has cart for us to use
-      // If user has no cart, create one for them
-
-
-
-      return null;
-    }
-
   }
 }
