@@ -28,7 +28,27 @@ namespace VendorApp.Data.EFCore
     /// <returns>An ICollection of Orders</returns>
     public async Task<ICollection<Order>> GetOrdersByUserId(string userId)
     {
-      return await context.Orders.Include(o => o.User).Where(o => o.User.Id == userId).ToListAsync();
+      return await context.Orders
+        .Include(o => o.OrderItems)
+        .Where(o => o.User.Id == userId)
+        .OrderByDescending(o => o.CreatedDate)
+        .ToListAsync();
+    }
+
+    /// <summary>
+    /// Fetch a list of orders that were made by the specified location sorted by date
+    /// </summary>
+    /// <param name="locationName"></param>
+    /// <returns></returns>
+    public async Task<ICollection<OrderItem>> GetOrderItemsByLocationName(string locationName)
+    {
+      // Get all order items that match the location name
+      return await context.OrderItems
+        .Include(oI => oI.Order)
+        .ThenInclude(o => o.User)
+        .Where(oI => oI.LocationName == locationName)
+        .OrderByDescending(oI => oI.Order.CreatedDate)
+        .ToListAsync();
     }
 
     // TODO: refine this set of docs
