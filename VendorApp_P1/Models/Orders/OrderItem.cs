@@ -22,6 +22,11 @@ namespace VendorApp.Models.Orders
     [Required]
     public int ID { get; set; }
     /// <summary>
+    /// The order item's order record
+    /// </summary>
+    /// <value></value>
+    public Order Order { get; set; }
+    /// <summary>
     /// The product the customer purchased in the order
     /// </summary>
     /// <value></value>
