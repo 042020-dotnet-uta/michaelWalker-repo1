@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 using VendorApp.Models.Locations;
 using VendorApp.Models.Products;
+using VendorApp.Models.Orders;
 using VendorApp.Models.ApiModels;
 
 namespace VendorApp.Data.EFCore
@@ -100,6 +101,17 @@ namespace VendorApp.Data.EFCore
         TargetInventory = targetLocationInventoryRecords,
         Catagories = catagories
       };
+    }
+
+    public async Task<ICollection<OrderItem>> getOrderItemsFromLocation(int id)
+    {
+      // get location by id
+      Location location = await context.Locations.AsNoTracking().FirstOrDefaultAsync(l => l.ID == id);
+      if(location == null){
+        return null;
+      }
+      // return list of orderitems from orderRepo
+      return await new EFCoreOrderRepository(context).GetOrderItemsByLocationName(location.Name);
     }
   }
 

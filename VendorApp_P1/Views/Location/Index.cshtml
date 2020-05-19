@@ -1,0 +1,22 @@
+@model IEnumerable<VendorApp.Models.Locations.Location>
+
+<h1>Location's</h1>
+<hr />
+
+@if(Model == null || Model.Count() == 0) {
+  <h2>There are no known locations, please go create some</h2>
+} else {
+  <ul class="list-group">
+    @foreach (var location in Model)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <h4>@location.Name</h4>
+          </div>
+          <div>
+            <a asp-action="Orders" asp-route-id="@location.ID" class="btn btn-primary">View Orders</a>
+          </div>
+        </li>
+    }
+  </ul>
+}
