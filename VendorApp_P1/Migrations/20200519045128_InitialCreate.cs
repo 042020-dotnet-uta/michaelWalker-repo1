@@ -315,10 +315,10 @@ namespace VendorApp.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderID = table.Column<int>(nullable: true),
                     ProductName = table.Column<string>(nullable: false),
                     LocationName = table.Column<string>(nullable: false),
-                    AmountPurchased = table.Column<int>(nullable: false),
-                    OrderID = table.Column<int>(nullable: true)
+                    AmountPurchased = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

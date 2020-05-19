@@ -527,7 +527,7 @@ namespace VendorApp.Migrations
 
             modelBuilder.Entity("VendorApp.Models.Orders.OrderItem", b =>
                 {
-                    b.HasOne("VendorApp.Models.Orders.Order", null)
+                    b.HasOne("VendorApp.Models.Orders.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderID");
                 });

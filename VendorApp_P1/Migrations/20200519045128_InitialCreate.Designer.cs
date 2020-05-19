@@ -10,7 +10,7 @@ using VendorApp.Data;
 namespace VendorApp.Migrations
 {
     [DbContext(typeof(P1ProtoDBContext))]
-    [Migration("20200519014125_InitialCreate")]
+    [Migration("20200519045128_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -529,7 +529,7 @@ namespace VendorApp.Migrations
 
             modelBuilder.Entity("VendorApp.Models.Orders.OrderItem", b =>
                 {
-                    b.HasOne("VendorApp.Models.Orders.Order", null)
+                    b.HasOne("VendorApp.Models.Orders.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderID");
                 });
