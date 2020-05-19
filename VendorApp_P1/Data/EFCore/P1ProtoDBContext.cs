@@ -21,21 +21,6 @@ namespace VendorApp.Data
     /// <value></value>
     public DbSet<Location> Locations { get; set; }
     /// <summary>
-    /// DBSet of UserRoles 
-    /// </summary>
-    /// <value></value>
-    // public DbSet<UserRole> UserRoles { get; set; }
-    /// <summary>
-    /// DBSet of Users 
-    /// </summary>
-    /// <value></value>
-    // public override DbSet<IdentityUser> Users { get; set; }
-    /// <summary>
-    /// DBSet of Roles 
-    /// </summary>
-    /// <value></value>
-    // public DbSet<Role> Roles { get; set; }
-    /// <summary>
     /// DBSet of Orders 
     /// </summary>
     /// <value></value>
