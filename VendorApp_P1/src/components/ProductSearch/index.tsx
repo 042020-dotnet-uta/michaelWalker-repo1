@@ -13,7 +13,7 @@ import ListGroup from "react-bootstrap/ListGroup"
 
 import Styled from "styled-components"
 
-import HashLoader from "react-spinners/HashLoader"
+import BeatLoader from "react-spinners/BeatLoader"
 
 // TODO: This file's out of control, cleanup and split code into other files
 
@@ -120,7 +120,7 @@ interface IVAProductInfo {
  * A centered react-spinner
  * @param props Includes size to indicate how large the loader should be
  */
-const CenteredHashLoader: React.FC<{ size: number }> = (props) => {
+const CenteredBeatLoader: React.FC<{ size: number }> = (props) => {
   return (
     <div
       style={{
@@ -131,7 +131,7 @@ const CenteredHashLoader: React.FC<{ size: number }> = (props) => {
         alignItems: "center",
       }}
     >
-      <HashLoader color={"#42c7b7"} size={props.size} />
+      <BeatLoader color={"#42c7b7"} size={props.size} />
     </div>
   )
 }
@@ -157,7 +157,7 @@ const InventoryList: React.FC<{
   return (
     <ListGroup style={{ maxHeight: "600px", overflowY: "auto" }}>
       {props.targetInventoryList.length === 0 ? (
-        <CenteredHashLoader size={100} />
+        <CenteredBeatLoader size={100} />
       ) : (
         props.targetInventoryList
           // Filter the list to whatever the user inputs in the textfield
@@ -447,7 +447,7 @@ export default class ProductSearch extends React.Component<{}, IState> {
     // * List of all known locations
     const locationsList =
       this.state.locations?.length === 0 ? (
-        <CenteredHashLoader size={50} />
+        <CenteredBeatLoader size={25} />
       ) : (
         this.state.locations?.map((location, key) => (
           <ListGroup.Item
@@ -463,7 +463,7 @@ export default class ProductSearch extends React.Component<{}, IState> {
     // * List of products to display to the user
     const inventoryList =
       this.state.targetInventory.length === 0 ? (
-        <CenteredHashLoader size={100} />
+        <CenteredBeatLoader size={50} />
       ) : (
         <InventoryList
           targetInventoryList={this.state.targetInventory}
@@ -476,7 +476,7 @@ export default class ProductSearch extends React.Component<{}, IState> {
     // * create list of catagories for the aside
     const catagoryList =
       this.state.catagories?.length === 0 ? (
-        <CenteredHashLoader size={50} />
+        <CenteredBeatLoader size={25} />
       ) : (
         this.state.catagories?.map((catagory, key) => (
           <ListGroup.Item
@@ -496,7 +496,7 @@ export default class ProductSearch extends React.Component<{}, IState> {
     // * create list of sorting options
     const sortList =
       this.state.catagories?.length === 0 ? (
-        <CenteredHashLoader size={50} />
+        <CenteredBeatLoader size={25} />
       ) : (
         <ListGroup>
           <ListGroup.Item

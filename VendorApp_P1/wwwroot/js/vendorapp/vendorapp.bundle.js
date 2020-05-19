@@ -32124,15 +32124,19 @@ function polyfill(Component) {
 
 /***/ }),
 
-/***/ "./node_modules/react-spinners/HashLoader.js":
+/***/ "./node_modules/react-spinners/BeatLoader.js":
 /*!***************************************************!*\
-  !*** ./node_modules/react-spinners/HashLoader.js ***!
+  !*** ./node_modules/react-spinners/BeatLoader.js ***!
   \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -32146,10 +32150,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -32161,64 +32161,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var core_1 = __webpack_require__(/*! @emotion/core */ "./node_modules/@emotion/core/dist/core.browser.esm.js");
-var index_1 = __webpack_require__(/*! ./helpers/index */ "./node_modules/react-spinners/helpers/index.js");
+var helpers_1 = __webpack_require__(/*! ./helpers */ "./node_modules/react-spinners/helpers/index.js");
+var beat = core_1.keyframes(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  50% {transform: scale(0.75);opacity: 0.2}\n  100% {transform: scale(1);opacity: 1}\n"], ["\n  50% {transform: scale(0.75);opacity: 0.2}\n  100% {transform: scale(1);opacity: 1}\n"])));
 var Loader = /** @class */ (function (_super) {
     __extends(Loader, _super);
     function Loader() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.thickness = function () {
-            var size = _this.props.size;
-            var value = index_1.parseLengthAndUnit(size).value;
-            return value / 5;
-        };
-        _this.lat = function () {
-            var size = _this.props.size;
-            var value = index_1.parseLengthAndUnit(size).value;
-            return (value - _this.thickness()) / 2;
-        };
-        _this.offset = function () { return _this.lat() - _this.thickness(); };
-        _this.color = function () {
-            var color = _this.props.color;
-            return index_1.calculateRgba(color, 0.75);
-        };
-        _this.before = function () {
-            var size = _this.props.size;
-            var color = _this.color();
-            var lat = _this.lat();
-            var thickness = _this.thickness();
-            var offset = _this.offset();
-            return core_1.keyframes(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n      0% {width: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      35% {width: ", ";box-shadow: 0 ", "px ", ", 0 ", "px ", "}\n      70% {width: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      100% {box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n    "], ["\n      0% {width: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      35% {width: ", ";box-shadow: 0 ", "px ", ", 0 ", "px ", "}\n      70% {width: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      100% {box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n    "])), thickness, lat, -offset, color, -lat, offset, color, index_1.cssValue(size), -offset, color, offset, color, thickness, -lat, -offset, color, lat, offset, color, lat, -offset, color, -lat, offset, color);
-        };
-        _this.after = function () {
-            var size = _this.props.size;
-            var color = _this.color();
-            var lat = _this.lat();
-            var thickness = _this.thickness();
-            var offset = _this.offset();
-            return core_1.keyframes(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n      0% {height: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      35% {height: ", ";box-shadow: ", "px 0 ", ", ", "px 0 ", "}\n      70% {height: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      100% {box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n    "], ["\n      0% {height: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      35% {height: ", ";box-shadow: ", "px 0 ", ", ", "px 0 ", "}\n      70% {height: ", "px;box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n      100% {box-shadow: ", "px ", "px ", ", ", "px ", "px ", "}\n    "])), thickness, offset, lat, color, -offset, -lat, color, index_1.cssValue(size), offset, color, -offset, color, thickness, offset, -lat, color, -offset, lat, color, offset, lat, color, -offset, -lat, color);
-        };
         _this.style = function (i) {
-            var size = _this.props.size;
-            var _a = index_1.parseLengthAndUnit(size), value = _a.value, unit = _a.unit;
-            return core_1.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      position: absolute;\n      content: \"\";\n      top: 50%;\n      left: 50%;\n      display: block;\n      width: ", ";\n      height: ", ";\n      border-radius: ", ";\n      transform: translate(-50%, -50%);\n      animation-fill-mode: none;\n      animation: ", " 2s infinite;\n    "], ["\n      position: absolute;\n      content: \"\";\n      top: 50%;\n      left: 50%;\n      display: block;\n      width: ", ";\n      height: ", ";\n      border-radius: ", ";\n      transform: translate(-50%, -50%);\n      animation-fill-mode: none;\n      animation: ", " 2s infinite;\n    "])), "" + value / 5 + unit, "" + value / 5 + unit, "" + value / 10 + unit, i === 1 ? _this.before() : _this.after());
-        };
-        _this.wrapper = function () {
-            var size = _this.props.size;
-            return core_1.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n      position: relative;\n      width: ", ";\n      height: ", ";\n      transform: rotate(165deg);\n    "], ["\n      position: relative;\n      width: ", ";\n      height: ", ";\n      transform: rotate(165deg);\n    "])), index_1.cssValue(size), index_1.cssValue(size));
+            var _a = _this.props, color = _a.color, size = _a.size, margin = _a.margin;
+            return core_1.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n      display: inline-block;\n      background-color: ", ";\n      width: ", ";\n      height: ", ";\n      margin: ", ";\n      border-radius: 100%;\n      animation: ", " 0.7s ", " infinite linear;\n      animation-fill-mode: both;\n    "], ["\n      display: inline-block;\n      background-color: ", ";\n      width: ", ";\n      height: ", ";\n      margin: ", ";\n      border-radius: 100%;\n      animation: ", " 0.7s ", " infinite linear;\n      animation-fill-mode: both;\n    "])), color, helpers_1.cssValue(size), helpers_1.cssValue(size), helpers_1.cssValue(margin), beat, i % 2 ? "0s" : "0.35s");
         };
         return _this;
     }
     Loader.prototype.render = function () {
         var _a = this.props, loading = _a.loading, css = _a.css;
-        return loading ? (core_1.jsx("div", { css: [this.wrapper(), css] },
+        return loading ? (core_1.jsx("div", { css: [css] },
             core_1.jsx("div", { css: this.style(1) }),
-            core_1.jsx("div", { css: this.style(2) }))) : null;
+            core_1.jsx("div", { css: this.style(2) }),
+            core_1.jsx("div", { css: this.style(3) }))) : null;
     };
-    Loader.defaultProps = index_1.sizeDefaults(50);
+    Loader.defaultProps = helpers_1.sizeMarginDefaults(15);
     return Loader;
 }(React.PureComponent));
 exports.default = Loader;
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+var templateObject_1, templateObject_2;
 
 
 /***/ }),
@@ -41310,13 +41276,13 @@ const Button_1 = __importDefault(__webpack_require__(/*! react-bootstrap/Button 
 const FormControl_1 = __importDefault(__webpack_require__(/*! react-bootstrap/FormControl */ "./node_modules/react-bootstrap/esm/FormControl.js"));
 const ListGroup_1 = __importDefault(__webpack_require__(/*! react-bootstrap/ListGroup */ "./node_modules/react-bootstrap/esm/ListGroup.js"));
 const styled_components_1 = __importDefault(__webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js"));
-const HashLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/HashLoader */ "./node_modules/react-spinners/HashLoader.js"));
+const BeatLoader_1 = __importDefault(__webpack_require__(/*! react-spinners/BeatLoader */ "./node_modules/react-spinners/BeatLoader.js"));
 // * Loader component
 /**
  * A centered react-spinner
  * @param props Includes size to indicate how large the loader should be
  */
-const CenteredHashLoader = (props) => {
+const CenteredBeatLoader = (props) => {
     return (react_1.default.createElement("div", { style: {
             height: "100%",
             width: "100%",
@@ -41324,10 +41290,10 @@ const CenteredHashLoader = (props) => {
             justifyContent: "center",
             alignItems: "center",
         } },
-        react_1.default.createElement(HashLoader_1.default, { color: "#42c7b7", size: props.size })));
+        react_1.default.createElement(BeatLoader_1.default, { color: "#42c7b7", size: props.size })));
 };
 const InventoryList = (props) => {
-    return (react_1.default.createElement(ListGroup_1.default, { style: { maxHeight: "600px", overflowY: "auto" } }, props.targetInventoryList.length === 0 ? (react_1.default.createElement(CenteredHashLoader, { size: 100 })) : (props.targetInventoryList
+    return (react_1.default.createElement(ListGroup_1.default, { style: { maxHeight: "600px", overflowY: "auto" } }, props.targetInventoryList.length === 0 ? (react_1.default.createElement(CenteredBeatLoader, { size: 100 })) : (props.targetInventoryList
         // Filter the list to whatever the user inputs in the textfield
         .filter((tI) => new RegExp(props.inputValue, "i").test(tI.product.name) // case insensitive string comparison: https://stackoverflow.com/questions/44469548/es6-filter-data-with-case-insensitive-term
     )
@@ -41508,15 +41474,15 @@ class ProductSearch extends react_1.default.Component {
     render() {
         var _a, _b, _c, _d, _e;
         // * List of all known locations
-        const locationsList = ((_a = this.state.locations) === null || _a === void 0 ? void 0 : _a.length) === 0 ? (react_1.default.createElement(CenteredHashLoader, { size: 50 })) : ((_b = this.state.locations) === null || _b === void 0 ? void 0 : _b.map((location, key) => (react_1.default.createElement(ListGroup_1.default.Item, { key: key, active: location.id === this.state.currentLocationId, onClick: this.handleLocationClick },
+        const locationsList = ((_a = this.state.locations) === null || _a === void 0 ? void 0 : _a.length) === 0 ? (react_1.default.createElement(CenteredBeatLoader, { size: 25 })) : ((_b = this.state.locations) === null || _b === void 0 ? void 0 : _b.map((location, key) => (react_1.default.createElement(ListGroup_1.default.Item, { key: key, active: location.id === this.state.currentLocationId, onClick: this.handleLocationClick },
             react_1.default.createElement("div", { "data-location-id": `${location.id}` }, location.name)))));
         // * List of products to display to the user
-        const inventoryList = this.state.targetInventory.length === 0 ? (react_1.default.createElement(CenteredHashLoader, { size: 100 })) : (react_1.default.createElement(InventoryList, { targetInventoryList: this.state.targetInventory, inputValue: this.state.inputValue, currentLocationId: this.state.currentLocationId, getProductUrl: this.getShowProductUrl }));
+        const inventoryList = this.state.targetInventory.length === 0 ? (react_1.default.createElement(CenteredBeatLoader, { size: 50 })) : (react_1.default.createElement(InventoryList, { targetInventoryList: this.state.targetInventory, inputValue: this.state.inputValue, currentLocationId: this.state.currentLocationId, getProductUrl: this.getShowProductUrl }));
         // * create list of catagories for the aside
-        const catagoryList = ((_c = this.state.catagories) === null || _c === void 0 ? void 0 : _c.length) === 0 ? (react_1.default.createElement(CenteredHashLoader, { size: 50 })) : ((_d = this.state.catagories) === null || _d === void 0 ? void 0 : _d.map((catagory, key) => (react_1.default.createElement(ListGroup_1.default.Item, { key: key, active: catagory.catagoryName === this.state.currentCatagoryFilter, onClick: (e) => this.handleCatagoryClick(e, catagory.catagoryName) },
+        const catagoryList = ((_c = this.state.catagories) === null || _c === void 0 ? void 0 : _c.length) === 0 ? (react_1.default.createElement(CenteredBeatLoader, { size: 25 })) : ((_d = this.state.catagories) === null || _d === void 0 ? void 0 : _d.map((catagory, key) => (react_1.default.createElement(ListGroup_1.default.Item, { key: key, active: catagory.catagoryName === this.state.currentCatagoryFilter, onClick: (e) => this.handleCatagoryClick(e, catagory.catagoryName) },
             react_1.default.createElement("div", { "data-location-id": `${catagory.id}` }, catagory.catagoryName)))));
         // * create list of sorting options
-        const sortList = ((_e = this.state.catagories) === null || _e === void 0 ? void 0 : _e.length) === 0 ? (react_1.default.createElement(CenteredHashLoader, { size: 50 })) : (react_1.default.createElement(ListGroup_1.default, null,
+        const sortList = ((_e = this.state.catagories) === null || _e === void 0 ? void 0 : _e.length) === 0 ? (react_1.default.createElement(CenteredBeatLoader, { size: 25 })) : (react_1.default.createElement(ListGroup_1.default, null,
             react_1.default.createElement(ListGroup_1.default.Item
             /* Apply onClick events to sort product list */
             , { 
