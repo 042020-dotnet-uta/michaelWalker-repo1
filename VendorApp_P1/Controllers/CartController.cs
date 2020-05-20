@@ -98,7 +98,7 @@ namespace VendorApp.Controllers
     {
       // Get the user who's azdding the item to the cart
       var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-      // VendorAppUser vendorAppUser = await userManager.GetUserAsync(User);
+      VendorAppUser user = await userManager.GetUserAsync(User);
 
       LocationInventory targetLocationInventory = await cartRepo.GetLocationInventoryByProductAndLocationName(locationName, productName);
 
@@ -120,7 +120,7 @@ namespace VendorApp.Controllers
 
       // Document changes
       TempData["FlashMessage"] = "Added to cart";
-      cartLogger.LogInformation($"{productName} was added to users cart");
+      cartLogger.LogInformation($"{productName} was added to {user.UserName}'s cart");
 
       // Take client back to list of products
 
