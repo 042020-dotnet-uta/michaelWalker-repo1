@@ -1,0 +1,38 @@
+## MiniQuiz: SOA Quiz
+
+
+### Question 1: 
+#### What is service longevity?
+1. The factor that determines the amount of time before a server closes
+2. How long a service can remain stateless
+3. [x] A service that is designed to be long lived
+4. A Service to be used to compose other services
+
+### Question 2: 
+#### What does a service provider decide before sending data to the service registry?
+1. Which service to expose
+2. Which service to give more importance over another
+3. Choosing a secure service overa service with easy availability
+4. [x] all of the above
+
+### Question 3: 
+#### The Use of binary-exchange provides what benefits?
+1. Allows a faster runtime response than is possible with web services
+2. Avoids the need to maintain configuration files
+3. Avoids the need to learn the technologies related to traditional web services
+4. [x] All of the Above
+
+### Question 4: 
+#### Why is the Adpeter design pattern useful?
+1. It creates a level of abstraction
+2. It's flexible to any service you give it
+3. [x] It allows otherwise incompatible classes to work together
+4. Back up and restore storageIt Loosens the coupling between client and server components
+
+### Question 5: 
+#### A Service Broker is _____?
+1. [x] What's used to make the web service available to any potential requester
+2. A security measure to prevent others from accessing the service
+3. What locates entries in the broker registry using various find operations
+4. What creates a web service and provides its information to the service registry
+
