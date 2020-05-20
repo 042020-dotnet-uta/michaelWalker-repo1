@@ -1,4 +1,4 @@
-
+using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -46,7 +46,15 @@ namespace VendorApp.Data.EFCore
     /// <returns>The inserted entity</returns>
     public async Task<TEntity> Add(TEntity entity)
     {
-      ctx.Set<TEntity>().Add(entity);
+      try
+      {
+        ctx.Set<TEntity>().Add(entity);
+      }
+      catch (DbUpdateException e)
+      {
+        Console.WriteLine("An issue occured when trying make an insertion to the DB");
+        Console.WriteLine(e.InnerException.Message);
+      }
       await ctx.SaveChangesAsync();
       return entity;
     }
