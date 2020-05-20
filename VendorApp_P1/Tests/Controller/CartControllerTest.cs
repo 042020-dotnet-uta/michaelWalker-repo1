@@ -39,7 +39,7 @@ namespace VendorApp.Tests
       ctx.Database.EnsureCreated();
     }
 
-    [Fact]
+    // [Fact]
     public void ItShouldDoSomething()
     {
       int id = 12;
