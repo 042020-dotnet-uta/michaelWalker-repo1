@@ -53,7 +53,7 @@ namespace VendorApp.Data.EFCore
 
     public async Task<TEntity> Update(TEntity entity)
     {
-      ctx.Set<TEntity>().Add(entity);
+      ctx.Set<TEntity>().Update(entity);
       await ctx.SaveChangesAsync();
       return entity;
     }
@@ -69,6 +69,8 @@ namespace VendorApp.Data.EFCore
       }
 
       ctx.Set<TEntity>().Remove(entity);
+
+      await ctx.SaveChangesAsync();
 
       return entity;
     }
