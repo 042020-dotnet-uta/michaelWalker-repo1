@@ -103,17 +103,49 @@ namespace VendorApp.Data.EFCore
       };
     }
 
+    // TODO: add docs
     public async Task<ICollection<OrderItem>> getOrderItemsFromLocation(int id)
     {
       // get location by id
       Location location = await context.Locations.AsNoTracking().FirstOrDefaultAsync(l => l.ID == id);
-      if(location == null){
+      if (location == null)
+      {
         return null;
       }
       // return list of orderitems from orderRepo
       return await new EFCoreOrderRepository(context).GetOrderItemsByLocationName(location.Name);
     }
+
+    // TODO: add docs
+    public async Task<List<LocationInventory>> GetAllLocationInventoryRecords()
+    {
+      return await context.LocationInventoryRecords.ToListAsync();
+    }
+
+    // TODO: add docs
+    public async Task<LocationInventory> AddLocationInventory(LocationInventory locationInventory)
+    {
+      context.LocationInventoryRecords.Add(locationInventory);
+      await context.SaveChangesAsync();
+
+      return locationInventory;
+    }
+
+    public async Task<LocationInventory> RemoveLocationInventoryRecord(int id)
+    {
+      LocationInventory locationInventory = await context.LocationInventoryRecords.FindAsync(id);
+
+      if (locationInventory == null)
+      {
+        // TODO: Log that no Entity was found to delete here or in Repo
+        return locationInventory;
+      }
+
+      context.LocationInventoryRecords.Remove(locationInventory);
+
+      await context.SaveChangesAsync();
+
+      return locationInventory;
+    }
   }
-
-
 }

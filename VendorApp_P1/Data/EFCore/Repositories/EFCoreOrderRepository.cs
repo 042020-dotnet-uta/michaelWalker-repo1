@@ -104,5 +104,52 @@ namespace VendorApp.Data.EFCore
     }
 
 
+    /// <summary>
+    /// Returns all known order items
+    /// </summary>
+    /// <returns></returns>
+    public async Task<ICollection<OrderItem>> GetAllOrderItems(){
+      return await context.OrderItems.ToListAsync();
+    }
+
+    /// <summary>
+    /// Creates an order item
+    /// </summary>
+    /// <returns></returns>
+    public async Task<OrderItem> AddOrderItem(OrderItem orderItem) {
+      context.OrderItems.Add(orderItem);
+      await context.SaveChangesAsync();
+      return orderItem;
+    }
+
+    /// <summary>
+    /// Updates an order item
+    /// </summary>
+    /// <returns></returns>
+    public async Task<OrderItem> UpdateOrderItem(OrderItem orderItem) {
+      context.OrderItems.Update(orderItem);
+      await context.SaveChangesAsync();
+      return orderItem;
+    }
+
+    /// <summary>
+    /// Updates an order item
+    /// </summary>
+    /// <returns></returns>
+    public async Task<OrderItem> RemoveOrderItem(int id) {
+      OrderItem orderItem = await context.OrderItems.FindAsync(id);
+
+      if (orderItem == null)
+      {
+        // TODO: Log that no Entity was found to delete here or in Repo
+        return orderItem;
+      }
+
+      context.OrderItems.Remove(orderItem);
+
+      await context.SaveChangesAsync();
+
+      return orderItem;
+    }
   }
 }
